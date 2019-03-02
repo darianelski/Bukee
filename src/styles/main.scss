@@ -4,25 +4,38 @@
 @import "vendor/normalize";
 @import "components/sprite";
 
+$general-color: #44444f;
 $light-color: #ffffff;
 $accent-color: #65e496;
+$bg-light-color: #f5f6fa;
+$bg-dark-color: #44444f;
 
 h1, h2, h3, h4, p {
     padding: 0;
     margin: 0;
 }
+
+h3 {
+    font-size: 24px;
+}
+
 a {
     text-decoration: none;
     border: none;
     outline: none;
+    line-height: 1;
 }
 small {
     display: block;
     font-family: 'Open Sans', sans-serif;
     font-style: italic;
+    letter-spacing: 0.5px;
 }
 body {
     font-family: 'Roboto Slab', serif;
+    font-size: 15px;
+    line-height: 1.55;
+    color: $general-color;
 }
 
 .container {
@@ -38,6 +51,7 @@ body {
     letter-spacing: 0.7px;
     color: $light-color;
     border-radius: 3px;
+    box-shadow: 0 2px 0 rgba(101, 228, 125, 0.5);
 }
 
 .block-title {
@@ -46,12 +60,18 @@ body {
     font-weight: 700;
     letter-spacing: 1.7px;
     span {
-        margin-top: 12px;
         display: block;
         font-size: 18px;
+        line-height: 1;
         font-weight: 400;
         letter-spacing: 0.9px;
         color: $accent-color;
+    }
+}
+
+.page {
+    &_gray {
+        background-color: $bg-light-color;
     }
 }
 
@@ -66,7 +86,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding-top: 38px;
+    padding-top: 50px;
     &__logo {
         display: block;
         width: 137px;
@@ -74,10 +94,13 @@ body {
         background-image: url(../img/logo.svg);
     }
     &-list {
+        margin: 0;
+        padding: 0;
         list-style-type: none;
         display: flex;
         justify-content: flex-end;
         font-family: 'Open Sans', sans-serif;
+        font-size: 16px;
         &__item {
             margin-left: 22px;
             padding-bottom: 3px;
@@ -100,7 +123,7 @@ body {
 .block-text {
     flex-basis: calc(93% - 500px);
     &__name {
-        margin-bottom: 30px;
+        margin-bottom: 15px;
         font-family: 'Open Sans', sans-serif;
         font-size: 18px;
         letter-spacing: 0.7px;
@@ -111,8 +134,6 @@ body {
     &__description {
         margin-bottom: 30px;
         font-family: 'Open Sans', sans-serif;
-        font-size: 15px;
-        line-height: 1.5;
         letter-spacing: 0.7px;
         &:last-child {
             margin-bottom: 0;
@@ -120,13 +141,13 @@ body {
        
     }
     &__btn {
-        margin-top: 22px;
+        margin-top: 18px;
         margin-bottom: 20px;
     }
 }
 
 .block-book {
-    margin-top: 165px;
+    margin-top: 180px;
     display: flex;
     justify-content: flex-start;
     &-demo {
@@ -140,8 +161,8 @@ body {
 }
 
 .page-about {
-    padding-top: 161px;
-    padding-bottom: 100px;
+    padding-top: 157px;
+    padding-bottom: 160px;
 }
 
 .block-about {
@@ -149,7 +170,9 @@ body {
     justify-content: space-between;
     &__author {
         margin-top: 15px;
-        margin-bottom: 23px;
+        margin-bottom: 6px;
+        font-size: 18px;
+        letter-spacing: 0.5px;
     }
     &__btn {
         margin-top: 18px;
@@ -172,9 +195,11 @@ body {
 }
 
 .block-counter {
-    margin-top: 180px;
+    width: 90%;
+    margin: auto;
+    margin-top: 190px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     p {
         font-family: 'Open Sans', sans-serif;
         text-align: center;
@@ -184,8 +209,93 @@ body {
         display: block;
         margin-bottom: 12px;
         font-family: 'Roboto Slab', serif;
+        line-height: 1;
         font-weight: 100;
         font-size: 80px;
         color: $accent-color;
+    }
+}
+
+.page-book-contents {
+    padding-top: 140px;
+    &__title {
+        margin-bottom: 80px;
+        text-align: center;
+    }
+}
+
+.book-contents-content {
+    display: flex;
+    justify-content: space-between;
+    letter-spacing: 0.5px;
+    h3 {
+        margin-bottom: 15px;
+        letter-spacing: 1.2px;
+    }
+    &-social {
+        margin-top: 30px;
+        display: flex;
+        &__title {
+            
+            font-family: 'Roboto Slab', serif;
+            font-weight: 700;
+            font-size: 18px;
+            letter-spacing: 0.9px;
+         }
+        &__list {
+            margin: 0;
+            padding: 0;
+            margin-left: 5px;
+            list-style-type: none;
+            &>li {
+                margin-left: 15px;
+                display: inline-block;
+                vertical-align: middle;
+                font-size: 18px;
+                &>a {
+                    color: $accent-color;
+                }
+            }
+        }
+    }
+    &__btn {
+        margin-top: 23px;
+        padding: 14px 45px;
+    }
+    &__about {
+        flex-basis: 40%;
+    }
+    &__text {
+        font-family: 'Open Sans', sans-serif;
+    }
+    &__table {
+        flex-basis: 49%;
+    }
+    &__list {
+        margin: 0;
+        padding: 0;
+        counter-reset: list;
+        column-count: 2;
+        font-family: 'Open Sans', sans-serif;
+        &>li {
+            margin-bottom: 10px;
+            position: relative;
+            padding-left: 38px;
+            counter-increment: list;
+            list-style-type: none;
+            &::before {
+                content: counter(list) ". ";
+            }
+            &::after {
+                position: absolute;
+                padding: 0 7px;
+                content: "+";
+                left: 0;
+                top: 1px;
+                background-image: linear-gradient(to left, rgba(101, 228, 206, 0.7) 0%, rgba(101, 228, 161, 0.7) 100%);
+                color: #fff;
+            }
+        }
+    
     }
 }
