@@ -26,6 +26,9 @@ a {
     outline: none;
     line-height: 1;
 }
+button {
+    border: none;
+}
 small {
     display: block;
     font-family: 'Open Sans', sans-serif;
@@ -47,7 +50,8 @@ body {
 .btn {
     display: inline-block;
     padding: 15px 25px;
-    background-color: $accent-color;
+    // background-color: $accent-color;
+    background: linear-gradient(to top left,  #65e4b0, #65e49c);
     font-size: 18px;
     letter-spacing: 0.7px;
     color: $light-color;
