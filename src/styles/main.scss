@@ -133,6 +133,10 @@ body {
         font-size: 18px;
         letter-spacing: 0.7px;
     }
+    &_events {
+        flex-basis: calc(93% - 517px);
+        margin-top: -20px;
+    }
     &__title {
         
     }
@@ -148,6 +152,31 @@ body {
     &__btn {
         margin-top: 18px;
         margin-bottom: 20px;
+    }
+    &-item {
+        margin-bottom: 60px;
+        &::last-child {
+            margin-bottom: 0;
+        }
+        &__date {
+            font-family: 'Open Sans', sans-serif;
+            color: $light-text-color;
+        }
+        &__title {
+            margin-bottom: 20px;
+            font-size: 18px;
+            letter-spacing: 0.9px;
+            color: $bg-dark-color;
+        }
+        &__description {
+            font-family: 'Open Sans', sans-serif;
+            color: $light-text-color;
+            letter-spacing: 0.75px;
+        }
+        &__btn {
+            margin-top: 27px;
+            padding: 15px 30px;
+        }
     }
 }
 
@@ -222,10 +251,17 @@ body {
         position: absolute;
         z-index: -1;
         right: 0;
+        &_left {
+            right: inherit;
+            left: 0;
+        }
     }
     &__img {
         margin-top: 45px;
         margin-right: 45px;
+        &_left {
+            margin-left: 50px;
+        }
     }
 }
 
@@ -414,4 +450,9 @@ body {
         font-weight: 700;
         letter-spacing: 0.75px;
     }
+}
+
+.page-events {
+    padding-top: 100px;
+    padding-bottom: 125px;
 }
