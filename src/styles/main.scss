@@ -6,12 +6,21 @@
 
 $general-color: #44444f;
 $light-text-color: #696980;
+$lighten-text-color:#9191b5;
 $light-color: #ffffff;
 $accent-color: #65e496;
 $bg-light-color: #f5f6fa;
 $bg-dark-color: #44444f;
 $info-color: #80809b;
 
+::-webkit-input-placeholder {color:$lighten-text-color;}
+::-moz-placeholder          {color:$lighten-text-color;}/* Firefox 19+ */
+:-moz-placeholder           {color:$lighten-text-color;}/* Firefox 18- */
+:-ms-input-placeholder      {color:$lighten-text-color;}
+
+* {
+    box-sizing: border-box;
+}
 h1, h2, h3, h4, p {
     padding: 0;
     margin: 0;
@@ -525,3 +534,40 @@ body {
     
 }
 
+.page-letter {
+    padding-top: 143px;
+    padding-bottom: 160px;
+}
+
+.letter {
+    display: flex;
+    justify-content: space-between;
+    &-content {
+        flex-basis: 48%;
+        &__title {
+            margin-bottom: 0;
+        }
+        &__text {
+            font-family: 'Open Sans', sans-serif;
+            letter-spacing: 0.75px;
+        }
+    }
+    &-form {
+        margin-top: 18px;
+        flex-basis: 49%;
+        &__input {
+            margin-bottom: 20px;
+            width: 100%;
+            padding: 15px 28px;
+            color: $lighten-text-color;
+            background-color: $bg-dark-color;
+            border: none;
+            outline: none;
+            border-radius: 3px;
+            
+        }
+        &__btn {
+            width: 100%;
+        }
+    }
+}
