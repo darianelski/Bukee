@@ -29,15 +29,15 @@
 					<div class="header">
 						<a href="" class="header__logo"></a>
 						<ul class="header-list">
-							<li class="header-list__item active"><a href="" class="header-list__link">Home</a></li>
-							<li class="header-list__item"><a href="" class="header-list__link">About</a></li>
-							<li class="header-list__item"><a href="" class="header-list__link">Contents</a></li>
-							<li class="header-list__item"><a href="" class="header-list__link">Books</a></li>
-							<li class="header-list__item"><a href="" class="header-list__link">Education</a></li>
-							<li class="header-list__item"><a href="" class="header-list__link">Skills</a></li>
-							<li class="header-list__item"><a href="" class="header-list__link">Portfolio</a></li>
-							<li class="header-list__item"><a href="" class="header-list__link">Clients</a></li>
-							<li class="header-list__item"><a href="" class="header-list__link">Contact</a></li>
+							<li class="header-list__item active"><a href="index.html" class="header-list__link">Home</a></li>
+							<li class="header-list__item"><a href="#about" class="header-list__link">About</a></li>
+							<li class="header-list__item"><a href="#contents" class="header-list__link">Contents</a></li>
+							<li class="header-list__item"><a href="#books" class="header-list__link">Books</a></li>
+							<li class="header-list__item"><a href="#education" class="header-list__link">Education</a></li>
+							<li class="header-list__item"><a href="#skills" class="header-list__link">Skills</a></li>
+							<li class="header-list__item"><a href="#portfolio" class="header-list__link">Portfolio</a></li>
+							<li class="header-list__item"><a href="#clients" class="header-list__link">Clients</a></li>
+							<li class="header-list__item"><a href="#contacts" class="header-list__link">Contact</a></li>
 						</ul>
 					</div>
 				</header>
@@ -65,7 +65,7 @@
 			</div>
 		</div>
 			
-		<div class="page page-about">
+		<div class="page page-about" id="about">
 			<div class="container">
 				<div class="block-about">
 					<div class="block-text">
@@ -98,7 +98,7 @@
 			</div>
 		</div>
 			
-		<div class="page page-book-contents page_gray">
+		<div class="page page-book-contents page_gray" id="contents">
 			<div class="container">
 				<h2 class="block-title page-book-contents__title">
 					Book Contents
@@ -132,14 +132,26 @@
 							<li>Consectetur adipisicing elit</li>
 							<li>Labore et dolore magna</li>
 						</ol>
-						<button class="btn book-contents-content__btn">More</button>
+						<ol class="book-contents-content__list book-contents-content__list_next" id="nextContentList" style="display: none;">
+							<li>Lorem ipsum dolor sit amet</li>
+							<li>Consectetur adipisicing elit</li>
+							<li>Labore et dolore magna</li>
+							<li>Consectetur adipisicing elit</li>
+							<li>Labore et dolore magna</li>
+							<li>Lorem ipsum dolor sit amet</li>
+							<li>Consectetur adipisicing elit</li>
+							<li>Labore et dolore magna</li>
+							<li>Consectetur adipisicing elit</li>
+							<li>Labore et dolore magna</li>
+						</ol>
+						<button id="nextContent" class="btn book-contents-content__btn">More</button>
 					</div>
 					
 				</div>
 			</div>
 		</div>
 
-		<div class="page-other-books">
+		<div class="page-other-books" id="books">
 			<div class="container">
 				<h2 class="block-title page-other-books__title">
 					Other Books
@@ -204,7 +216,7 @@
 			</div>
 		</div>
 
-		<div class="page">
+		<div class="page page-slider" id="education">
 			<div class="container">
 				<div class="block-slider">
 					<div>
@@ -242,10 +254,10 @@
 						<p class="block-slider__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. </p>
 					</div>
 				</div>
-			</div>
+			</div>	
 		</div>
 
-		<div class="page page-events">
+		<div class="page page-events" id="skills">
 			<div class="container">
 				<div class="block-about block-events">
 					<div class="block-ava">
@@ -281,7 +293,7 @@
 			</div>
 		</div>
 
-		<div class="page page-blog page_gray">
+		<div class="page page-blog page_gray" id="portfolio">
 			<div class="container">
 				<h2 class="block-title page-blog__title">
 					Latest from Blog
@@ -329,7 +341,7 @@
 			</div>
 		</div>
 
-		<div class="page page-letter">
+		<div class="page page-letter" id="clients">
 			<div class="container">
 				<div class="letter">
 					<div class="letter-content">
@@ -346,7 +358,7 @@
 			</div>
 		</div>
 
-		<div class="footer">
+		<div class="footer" id="contacts">
 			<div class="container">
 				<div class="footer__content">
 					<div class="footer-desc">
@@ -388,6 +400,18 @@
 				$('.block-slider').slick({
 					dots: true,
 					arrows: false,
+				});
+
+				$('#nextContent').click(function(){
+					$('#nextContentList').fadeIn();
+					$(this).hide();
+				});
+				$(function(){
+					$(".header-list").on("click","a", function (event) {
+						event.preventDefault();
+						var id = $(this).attr('href'), top = $(id).offset().top;
+						$('body,html').animate({scrollTop: top}, 500);
+					});
 				});
 			});
 		</script>
